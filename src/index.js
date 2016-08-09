@@ -1,4 +1,6 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-render(<div />, document.getElementById('app'))
+import App from './smart/app';
+
+render(<App />, document.getElementById('app'))

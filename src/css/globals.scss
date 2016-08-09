@@ -1,0 +1,16 @@
+$colors: (
+    'white':         #EFE9F1,
+    'beige':         #F4D6B8,
+    'brown':         #A67B50,
+    'brown--dark':   #714A30,
+    'rose':          #C18678
+);
+
+@function color($name) {
+    @if(map-has-key($colors, $name)) {
+        @return map-get($colors, $name);
+    } @else {
+        @warn '#{$name} could not be found in `$colors`';
+        @return #fff;
+    }
+}
