@@ -1,0 +1,11 @@
+@import "../../css/globals";
+
+$color: color('brown');
+
+.board {
+    width: 624px;
+    height: 624px;
+    border: 12px solid $color;
+    border-radius: 5px;
+    background-color: $color;
+}
