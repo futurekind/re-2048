@@ -13,30 +13,30 @@ const calcTranslation = (top, left) => (
     }
 )
 
+const getShade = (value) => {
+    if(value < 64) return 'light';
+    if(value < 512) return 'medium';
+    if(value < 2048) return 'dark';
+    if(value >= 2048) return 'ultradark';
+}
+
 const Tile = (props) => (
     <div
-        className={`tile  tile--${props.shade}`}
+        className={`tile  tile--${getShade(props.value)}`}
         style={calcTranslation(props.top, props.left)}
     >
-        {props.label}
+        {props.value}
     </div>
 )
 
 Tile.defaultProps = {
-    shade: 'light',
-    label: 2,
+    value: 2,
     top: 0,
     left: 0
 };
 
 Tile.propTypes = {
-    shade: pt.oneOf([
-        'light',
-        'medium',
-        'dark',
-        'ultradark'
-    ]),
-    label: pt.number,
+    value: pt.number,
     top: pt.oneOf([0, 1, 2, 3]),
     left: pt.oneOf([0, 1, 2, 3]),
 };

@@ -11,7 +11,7 @@ class App extends Component {
         return (
             <div className="app">
                 <Board>
-                    <Tile shade="light" top={0} left={0} />
+                    <Tile top={3} left={0} value={2048} />
                 </Board>
             </div>
         )
