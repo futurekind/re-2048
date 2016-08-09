@@ -1,0 +1,27 @@
+@import "../../css/globals";
+
+.tile {
+    width: 144px;
+    height: 144px;
+    position: absolute;
+    font-size: 48px;
+    text-align: center;
+    line-height: 144px;
+}
+
+.tile--light {
+    background-color: color('white');
+    color: color('brown--dark');
+}
+.tile--medium {
+    background-color: color('beige');
+    color: color('brown--dark');
+}
+.tile--dark {
+    background-color: color('rose');
+    color:color('white');
+}
+.tile--ultradark {
+    background-color: color('brown--dark');
+    color: color('white');
+}

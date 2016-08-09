@@ -8,6 +8,7 @@ $stop: 95%;
     height: 624px;
     border: 12px solid $color;
     border-radius: 5px;
+    position: relative;
     background-image: linear-gradient(to right, transparent $stop, $color $stop), linear-gradient(to bottom, transparent $stop, $color $stop);
     background-size: 152px 152px;
 }
