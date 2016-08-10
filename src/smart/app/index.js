@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Board from '../../dumb/board';
 import Tile from '../../dumb/tile';
 
-import {addTile} from '../../redux/actions';
+import {addTile, translateTiles} from '../../redux/actions';
 import {getEmptyFields, getAllFields} from '../../redux/reducer.root';
 
 import './app.scss';
@@ -15,6 +15,13 @@ class App extends Component {
         super(props);
 
         this.handleAddTile = this.handleAddTile.bind(this);
+        this.handleMoveTiles = this.handleMoveTiles.bind(this);
+    }
+
+    componentDidMount() {
+        this.handleAddTile();
+
+        setTimeout(() => this.handleAddTile(), 20)
     }
 
     render() {
@@ -29,9 +36,16 @@ class App extends Component {
                         return <Tile key={tile.uuid} value={tile.value} top={field[0]} left={field[1]} />
                     })}
                 </Board>
-                <button onClick={this.handleAddTile}>Spawn</button>
+                <button onClick={this.handleMoveTiles}>Move</button>
             </div>
         )
+    }
+
+    handleMoveTiles() {
+        const {tiles, onTranslateTiles} = this.props;
+        onTranslateTiles(tiles);
+
+        setTimeout(() => this.handleAddTile(), 100)
     }
 
     handleAddTile() {
@@ -48,7 +62,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (d) => ({
-    onAddTile(availableFields) { d(addTile(availableFields)) }
+    onAddTile(availableFields) { d(addTile(availableFields)) },
+    onTranslateTiles(tiles) { d(translateTiles(tiles)) }
 })
 
 export default connect(mapState, mapDispatch)(App)

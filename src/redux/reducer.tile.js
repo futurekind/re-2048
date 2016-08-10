@@ -14,6 +14,11 @@ export default (state = [], action) => {
             ];
             break;
 
+        case 'UPDATE_TILES': {
+            return action.tiles;
+            break;
+        }
+
         default:
             return state;
     }
@@ -33,7 +38,9 @@ export const getEmptyFields = (state) => {
 }
 
 export const getFieldIndex = (coords) => {
-    return fieldsMap.findIndex(item => item === coords)
+    return fieldsMap.findIndex(item => item[0] === coords[0] && item[1] === coords[1])
 }
+
+export const getField = (index) => fieldsMap[index];
 
 export const getAllFields = () => fieldsMap
