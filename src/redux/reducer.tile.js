@@ -5,13 +5,13 @@ const fieldsMap = [
     [3, 0], [3, 1], [3, 2], [3, 3]
 ]
 
-export default (state = [
-    {uuid: '123', value: 2, fieldMapIndex: 0},
-    {uuid: '456', value: 4, fieldMapIndex: 15},
-], action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case 'ADD_TILE':
-            return state;
+            return [
+                ...state,
+                action.payload
+            ];
             break;
 
         default:
@@ -30,6 +30,10 @@ export const getEmptyFields = (state) => {
             ]
         return emptyFieldMap
     }, []);
+}
+
+export const getFieldIndex = (coords) => {
+    return fieldsMap.findIndex(item => item === coords)
 }
 
 export const getAllFields = () => fieldsMap

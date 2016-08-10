@@ -7,4 +7,5 @@ export default combineReducers({
 })
 
 export const getEmptyFields = (state) => fromTiles.getEmptyFields(state);
+export const getFieldIndex = (coords) => fromTiles.getFieldIndex(coords);
 export const getAllFields = () => fromTiles.getAllFields();
