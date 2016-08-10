@@ -1,3 +1,7 @@
 import {combineReducers} from 'redux';
 
-export default combineReducers({})
+import tiles from './reducer.tile';
+
+export default combineReducers({
+    tiles
+})
